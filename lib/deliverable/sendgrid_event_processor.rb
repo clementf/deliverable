@@ -6,7 +6,7 @@ module Deliverable
 
     def process
       @events.each do |event|
-        provider_message_id = event["sg_message_id"]
+        provider_message_id = event["smtp-id"].match(/\<(.+)\>/)[1]
         email = Email.find_by(provider_message_id: provider_message_id)
 
         unless email.present?
