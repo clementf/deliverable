@@ -6,11 +6,10 @@ module Deliverable
 
     def process
       @events.each do |event|
-        provider_message_id = event["smtp-id"].match(/\<(.+)\>/)[1]
-        email = Email.find_by(provider_message_id: provider_message_id)
+        email = Email.find(event["deliverable_id"])
 
         unless email.present?
-          Rails.logger.warn("Couldn't find Deliverable::Email with id #{provider_message_id}")
+          Rails.logger.warn("Couldn't find Deliverable::Email with id #{event["deliverable_id"]}")
           next
         end
 
