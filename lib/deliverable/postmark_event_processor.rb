@@ -10,7 +10,7 @@ module Deliverable
 
       unless email.present?
         Rails.logger.warn("Couldn't find Deliverable::Email with id #{deliverable_id}")
-        next
+        return
       end
 
       event_type = event["RecordType"]
