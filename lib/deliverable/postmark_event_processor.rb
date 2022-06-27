@@ -1,5 +1,5 @@
 module Deliverable
-  class SendgridEventProcessor
+  class PostmarkEventProcessor
     def initialize(event)
       @event = event
     end
