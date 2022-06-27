@@ -4,11 +4,11 @@ module Deliverable
       skip_before_action :verify_authenticity_token
 
       def create
-        events = JSON.parse(request.body.read)
+        event = JSON.parse(request.body.read)
 
         Deliverable::PostmarkEventProcessor.new(event).process
 
-        head 202
+        head 200
       end
     end
   end
