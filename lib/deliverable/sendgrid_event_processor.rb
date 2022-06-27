@@ -6,7 +6,7 @@ module Deliverable
 
     def process
       @events.each do |event|
-        email = Email.find(event["deliverable_id"])
+        email = Email.find_by(id: event["deliverable_id"])
 
         unless email.present?
           Rails.logger.warn("Couldn't find Deliverable::Email with id #{event["deliverable_id"]}")
