@@ -25,5 +25,13 @@ module Deliverable
         link_clicked: @event["OriginalLink"]
       )
     end
+
+    private
+
+    def mapped_event(event)
+      {
+        "delivery" => "delivered"
+      }[event.downcase] || event.downcase
+    end
   end
 end
