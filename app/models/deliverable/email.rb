@@ -9,6 +9,10 @@ module Deliverable
       open_events.any?
     end
 
+    def clicked?
+      click_events.any?
+    end
+
     def opening_time
       return nil unless open_events.present?
 
@@ -19,6 +23,10 @@ module Deliverable
 
     def open_events
       email_events.where(event_name: "open").order(id: :asc)
+    end
+
+    def click_events
+      email_events.where(event_name: "click").order(id: :asc)
     end
   end
 end
