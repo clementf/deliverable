@@ -3,7 +3,7 @@ Deliverable keeps track of email opens, clicks and related events, directly in y
 
 It uses webhooks from email relays to keep track of what happened to an email sent from your app.
 
-It currently supports Sendgrid (only).
+It currently supports Sendgrid and Postmark.
 
 ## Usage
 In your mailers, you need to create a `Deliverable::Email`, and pass a deliverable_id param to the mailer.
